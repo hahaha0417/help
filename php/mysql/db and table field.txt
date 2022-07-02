@@ -1,0 +1,42 @@
+// 取得 database table
+    public function Get_Tables($database, &$result)
+    {
+        $pdo = pdo::instance();
+
+        $sql = "SHOW TABLES FROM {$database}";
+    
+        $rows = [];
+        $pdo->Query($sql, $rows);
+
+        foreach($rows as $key => &$row)
+        {
+            $result[$row[0]] = $row[0];
+        }
+
+        return true;
+    }
+
+    // 取得資料表所有欄位
+    public function Get_Table_Fields($database, $table, &$result)
+    {
+        $pdo = pdo::instance();
+
+        $sql = "show full fields from {$database}.{$table}";
+    
+        $rows = [];
+        $pdo->Query($sql, $rows);
+
+        foreach($rows as $key => &$row)
+        {
+            if(!isset($row["Field"])) {
+                continue;
+            }
+            $result[$key] = [
+                "field" => $row["Field"],
+                "comment" => $row["Comment"],
+            ];
+
+        }
+
+        return true;
+    }

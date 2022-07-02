@@ -1,0 +1,3 @@
+https://tech.ray247k.com/blog/202203-laravel-queue/ *
+
+https://laravel.tw/docs/5.2/queues *

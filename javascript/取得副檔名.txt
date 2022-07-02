@@ -1,0 +1,4 @@
+let file1 = "somefile.txt";
+let file2 = "somefile.xlsx";
+console.log(file1.split(".").pop());
+console.log(file2.split(".").pop());

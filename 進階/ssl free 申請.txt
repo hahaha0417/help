@@ -1,0 +1,30 @@
+windows 限3次
+https://www.sslforfree.com/
+https://manage.sslforfree.com/dashboard
+
+linux
+certbot
+
+
+
+DNS
+https://www.noip.com/
+
+################################################################################# 
+httpd-ssl.conf
+Listen 443
+SSLCertificateFile       "conf/ssl.crt/certificate.crt"
+SSLCertificateKeyFile    "conf/ssl.crt/private.key"
+SSLCertificateChainFile  "conf/ssl.crt/ca_bundle.crt"
+
+################################################################################# 
+DocumentRoot "D:/web/web/hahaha_split/public"
+ServerName hahaha0417.ddns.net:443
+ServerAdmin localhost
+
+################################################################################# 
+手動的方式下載
+透過上傳檔案認證
+下載憑證
+https://kinsta.com/knowledgebase/xampp-server-certificate-does-not-include-an-id-which-matches-the-server-name/
+修改如上
