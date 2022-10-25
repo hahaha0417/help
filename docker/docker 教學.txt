@@ -1,0 +1,46 @@
+查版本
+docker.exe version
+查image
+docker.exe image ls
+抓image
+docker.exe image pull hello-world
+用container 運行 image
+docker.exe container run hello-world
+跑ubuntu bash 沒有會自己下載
+docker.exe container run -it ubuntu bash
+
+刪除docker
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+02ffb8c344d6   ubuntu    "bash"    2 minutes ago   Up 2 minutes             romantic_wiles
+PS C:\Users\hahah> docker.exe container kill 02ff
+
+將設定檔打包 - 成可執行，from 是使用環境
+docker.exe image build -t python3-app .
+docker.exe container run python3-app
+
+端口映射本地 4000:5000 web-app-backend (docker)
+docker.exe run -p 4000:5000 web-app-backend
+
+路徑映射 local_folder_path 可以直接寫路徑
+docker.exe run -p 3000:3000 -v local_folder_path:/app/volume volume-app-frontend
+
+volumn法
+docker volumn create book-data
+docker volumn inspect book-data
+docker.exe run -p 3000:3000 -v book-data:book-data ubuntu
+docker.exe run -p 3000:3000 -v book-data:/app/volume volume-app-frontend
+
+用文件build，打包成一個image
+docker-compose.yml
+docker-compose up
+
+docker-compose start
+docker-compose stop
+docker-compose down
+
+刪除
+docker rmi ubuntu
+
+https://marcus116.blogspot.com/2019/02/how-to-run-redis-in-docker.html
+https://philipzheng.gitbook.io/docker_practice/container/run
+https://www.youtube.com/channel/UCaShCEomtBrCb-B0NRrGqzg *

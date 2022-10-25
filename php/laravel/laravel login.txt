@@ -1,0 +1,43 @@
+https://learnku.com/docs/laravel/9.x/authentication/12239
+################################## 
+#Laravel Breeze
+################################## 
+https://learnku.com/docs/laravel/9.x/starter-kits/12203#laravel-breeze
+
+composer require laravel/breeze
+###############
+Breeze#
+php artisan breeze:install
+###############
+
+###############
+Breeze & Inertia#
+php artisan breeze:install vue
+###############
+npm install
+npm run dev
+php artisan migrate
+php artisan serve
+
+
+################################## 
+#Laravel Jetstream
+################################## 
+https://jetstream.laravel.com/2.x/installation.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

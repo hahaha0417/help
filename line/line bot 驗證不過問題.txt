@@ -1,0 +1,4 @@
+要設ca_bundle.crt，就可以通過驗證
+ca_bundle.crt *
+certificate.crt
+private.key

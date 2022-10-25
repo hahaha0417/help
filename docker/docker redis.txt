@@ -1,0 +1,24 @@
+predis / predis
+下載docker redis
+設定Port Mapping 6379
+
+裝插件啟動即可正常使用
+
+
+$server  =  [
+    'host'      =>  '127.0.0.1' ,
+    'port'      =>  6379 ,
+    'database'  =>  1
+];
+$client = new \Predis\Client($server);
+$client->set('foo', 'bar');
+$value = $client->get('foo');
+echo $value;
+$rrr = 0;
+
+https://pecl.php.net/package/redis
+DLL
+8.1 Thread Safe (TS) x64
+
+手冊
+https://www.runoob.com/redis/redis-sets.html *

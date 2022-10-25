@@ -1,0 +1,13 @@
+https://www.eztrust.com.tw/webdesign/D/1360
+
+google兩步驟認證後會出現 應用程式密碼
+建立後即可寄信
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=hahaha0417@gmail.com
+MAIL_PASSWORD=akiqyspnedvbhkfl
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=hahaha0417@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"

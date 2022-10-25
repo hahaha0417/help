@@ -1,0 +1,6 @@
+https://dannyliu.me/%E5%B9%ABhyper-v%E8%99%9B%E6%93%AC%E6%A9%9F%E6%96%B0%E5%A2%9E%E8%99%9B%E6%93%AC%E7%B6%B2%E8%B7%AF%E5%8D%A1/
+
+新增網卡(公用)
+並設定使用此虛擬網卡上網
+
+即可聯外網

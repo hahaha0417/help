@@ -1,0 +1,22 @@
+
+5.6.38不能用
+5.6.37可
+
+[opcache]
+zend_extension=php_opcache.dll
+opcache.memory_consumption=128
+opcache.interned_strings_buffer=8
+opcache.max_accelerated_files=4000
+opcache.revalidate_freq=60
+opcache.fast_shutdown=1
+opcache.enable_cli=1
+
+[xdebug]
+zend_extension = php_xdebug.dll
+xdebug.remote_enable=1
+xdebug.remote_connect_back=On
+xdebug.remote_port="9003"
+xdebug.profiler_enable=0
+xdebug.remote_handler=dbgp
+xdebug.remote_mode=req
+xdebug.remote_autostart=true

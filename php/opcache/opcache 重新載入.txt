@@ -1,0 +1,3 @@
+https://www.php.net/manual/en/function.opcache-invalidate.php
+
+該檔案會失效，導致重新載入

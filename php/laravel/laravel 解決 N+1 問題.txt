@@ -1,0 +1,4 @@
+https://docfunc.com/posts/52/%E9%81%BF%E5%85%8D-laravel-orm-%E7%9A%84-n1-%E5%95%8F%E9%A1%8C-post
+解決 N+1 問題
+
+CDCAA

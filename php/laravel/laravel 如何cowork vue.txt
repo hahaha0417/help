@@ -1,0 +1,15 @@
+https://laravel.com/docs/9.x/vite
+
+<!doctype html>
+<head>
+    {{-- ... --}}
+ 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+npm run dev
+會一直更新
+
+釋出才用
+npm run build
+切成這個跑

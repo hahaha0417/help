@@ -1,0 +1,16 @@
+
+
+mongodb / mongodb
+下載docker composer require mongodb/mongodb
+設定Port Mapping 27017
+
+裝插件啟動即可正常使用
+https://pecl.php.net/package/mongodb/1.13.0/windows
+DLL
+8.1 Thread Safe (TS) x64
+
+https://www.mongodb.com/docs/php-library/current/tutorial/crud/#insert-one-document *
+https://www.runoob.com/mongodb/php7-mongdb-tutorial.html
+
+手冊
+https://www.runoob.com/mongodb/mongodb-tutorial.html*
