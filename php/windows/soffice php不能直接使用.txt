@@ -1,0 +1,10 @@
+https://moodle.org/mod/forum/discuss.php?d=76649&lang=zh_cn
+
+<?php
+exec('C:/Progra~1/LibreOffice/program/soffice.exe');
+
+<?php
+exec('C:/Progra~2/oCam/oCam.exe');
+
+For "C:\Program Files", use "C:\PROGRA~1"
+For "C:\Program Files (x86)", use "C:\PROGRA~2"

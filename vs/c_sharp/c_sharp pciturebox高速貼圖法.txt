@@ -1,0 +1,24 @@
+private Bitmap _frame; // 用 Format32bppPArgb 建立
+
+protected override void OnPaint(PaintEventArgs e)
+{
+    base.OnPaint(e);
+
+    // 高速貼圖：關閉所有品質選項
+    e.Graphics.CompositingMode    = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+    e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+    e.Graphics.InterpolationMode  = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+    e.Graphics.SmoothingMode      = System.Drawing.Drawing2D.SmoothingMode.None;
+    e.Graphics.PixelOffsetMode    = System.Drawing.Drawing2D.PixelOffsetMode.None;
+
+    if (_frame != null)
+        e.Graphics.DrawImageUnscaled(_frame, 0, 0);
+}
+
+為什麼 BitBlt 比較快
+
+BitBlt = 純 GDI 像素拷貝（SRCCOPY）：幾乎就是硬體/驅動等級的 blit，沒有插值、色彩管理、alpha 合成等開銷。
+
+DrawImage(Unscaled) = 走 GDI+ 管線：即使你把所有品質都關掉，還是會經過 GDI+ 的包裝與檢查，通常比純 GDI 多一點 overhead。
+
+實務上，在「同尺寸、單純貼圖」這種 blit 場景，BitBlt 常見快 10%～40%（視顯示卡/驅動而異）。
