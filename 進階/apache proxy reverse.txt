@@ -1,0 +1,50 @@
+
+
+
+
+
+啟動asp.net 專案
+dotnet xxx.dll
+
+httpd.conf
+啟用這些模組
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod headers
+
+
+apache
+
+Listen 9999
+<VirtualHost *:9999>
+    ServerName localhost 
+
+    # 保留原始 Host，ASP.NET Core 可正確生成 URL
+    ProxyPreserveHost On
+
+    # 轉發 Header 給後端 Kestrel
+    RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}s"
+    RequestHeader set X-Forwarded-Proto expr=%{REQUEST_SCHEME}
+
+    ProxyPass / http://127.0.0.1:5201/
+    ProxyPassReverse / http://127.0.0.1:5201/
+
+    ErrorLog "D:/web/log/net/error.log"
+    CustomLog "D:/web/log/net/access.log" common
+	
+
+</VirtualHost>
+
+
+asp.net
+// 測試時註解
+//app.UseHttpsRedirection();
+
+
+
+
+
+
+
+
+
