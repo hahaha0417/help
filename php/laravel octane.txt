@@ -1,0 +1,65 @@
+
+安裝go
+https://go.dev/dl/
+
+
+cd D:\web\web\test2
+
+#First, install the Laravel Bridge package via Composer:
+
+composer require roadrunner-php/laravel-bridge
+#Publish the configuration file:
+
+php artisan vendor:publish --provider='Spiral\RoadRunnerLaravel\ServiceProvider' --tag=config
+#Download and install RoadRunner binary using DLoad:
+
+./vendor/bin/dload get rr
+
+
+
+Create a .rr.yaml configuration file in your project root:
+
+version: '3'
+rpc:
+  listen: 'tcp://127.0.0.1:6001'
+
+server:
+  command: 'php vendor/bin/rr-worker start'
+
+http:
+  address: 0.0.0.0:8000
+  middleware: [ "static", "headers", "gzip" ]
+  pool:
+    num_workers: 4
+    max_jobs: 64
+    #max_jobs: 64 # feel free to change this
+    supervisor:
+      exec_ttl: 60s
+  headers:
+    response:
+      X-Powered-By: "RoadRunner"
+  static:
+    dir: "public"
+    forbid: [ ".php" ]
+
+
+
+
+
+
+./vendor/bin/rr serve -c .rr.yaml
+./rr.exe serve -c .rr.yaml
+
+
+./rr.exe serve -c .rr.yaml
+	
+	
+php artisan config:clear
+php artisan route:clear
+php artisan cache:clear
+
+php artisan octane:start
+
+修改.rr.yaml
+server:
+    command: 'php artisan octane:start --server=roadrunner'
