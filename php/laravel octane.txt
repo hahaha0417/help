@@ -1,6 +1,6 @@
+https://github.com/roadrunner-php/laravel-bridge?tab=readme-ov-file#starting-the-server
 
-安裝go
-https://go.dev/dl/
+
 
 
 cd D:\web\web\test2
