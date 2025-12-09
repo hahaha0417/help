@@ -1,0 +1,6 @@
+
+
+5. 例外錯誤導致 SwaggerGen 無法產生 JSON
+例如：重複路由、模型循環引用、未處理的例外。
+
+✅ 解法：檢查啟動時的 Console 或 Debug 輸出，找出 SwaggerGeneratorException 或其他錯誤訊息。

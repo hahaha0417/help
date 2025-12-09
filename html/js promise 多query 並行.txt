@@ -1,0 +1,46 @@
+function getUser(id) {
+    return new Promise((resolve, reject) => {
+        // 模擬 30% 失敗
+        const ok = Math.random() > 0.3;
+
+        setTimeout(() => {
+            if (ok) {
+                resolve({ id, name: "hahaha" });
+            } else {
+                reject(`getUser(${id}) 失敗`);
+            }
+        }, 400);
+    });
+}
+
+// 不會立即執行
+const apiList = [
+    () => getUser(10),
+    () => getUser(20),
+    () => getUser(30)
+];
+
+Promise.all(apiList.map(fn => fn()))
+    .then(res => console.log("全部成功", res))
+    .catch(err => console.log("有失敗 → catch:", err));
+
+
+async function run() {
+    const apiList = [getUser, fetchOrders, getProducts];
+
+    const tasks = apiList.map(fn => fn());
+
+    tasks.forEach(task => {
+        task
+            .then(result => console.log("成功:", result))
+            .catch(err => console.log("失敗:", err));
+    });
+}
+
+run();
+
+
+Promise.all	❗會	❌ 只有成功狀態時才 then
+Promise.allSettled	❌不會	✔ 全部成功與失敗都有
+Promise.any	❌不會（只要 1 成功就算成功）	❌ 不保留全部結果
+Promise.race	❌不會（只看最先回應）	❌
