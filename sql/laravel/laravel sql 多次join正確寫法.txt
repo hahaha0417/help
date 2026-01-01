@@ -1,0 +1,90 @@
+INNER JOIN（安全）
+->join('orders', function ($join) {
+    $join->on('orders.user_id', '=', 'users.id')
+         ->where('orders.status', 'paid');
+})
+// 等價於
+->where('orders.status', 'paid');
+
+
+LEFT JOIN（一定要這樣）
+->leftJoin('orders', function ($join) {
+    $join->on('orders.user_id', '=', 'users.id')
+         ->where('orders.status', 'paid');
+});
+
+
+錯誤寫法（99% 會踩雷）
+DB::table('users')
+  ->leftJoin('orders', 'orders.user_id', '=', 'users.id')
+  ->leftJoin('payments', 'payments.order_id', '=', 'orders.id')
+  ->where('orders.status', 'paid')
+  ->whereNotNull('payments.paid_at')
+  ->get();
+
+
+
+
+正確寫法 ①（最推薦）：條件放進 join closure
+DB::table('users')
+  ->leftJoin('orders', function ($join) {
+      $join->on('orders.user_id', '=', 'users.id')
+           ->where('orders.status', 'paid');
+  })
+  ->leftJoin('payments', function ($join) {
+      $join->on('payments.order_id', '=', 'orders.id')
+           ->whereNotNull('payments.paid_at');
+  })
+  ->get();
+
+LEFT JOIN orders
+  ON orders.user_id = users.id
+ AND orders.status = 'paid'
+
+LEFT JOIN payments
+  ON payments.order_id = orders.id
+ AND payments.paid_at IS NOT NULL
+
+
+
+正確寫法 ②：joinSub（條件很多時）
+$paidOrders = DB::table('orders')
+    ->where('status', 'paid');
+
+$paidPayments = DB::table('payments')
+    ->whereNotNull('paid_at');
+
+DB::table('users')
+  ->leftJoinSub($paidOrders, 'orders', function ($join) {
+      $join->on('orders.user_id', '=', 'users.id');
+  })
+  ->leftJoinSub($paidPayments, 'payments', function ($join) {
+      $join->on('payments.order_id', '=', 'orders.id');
+  })
+  ->get();
+
+
+一句話總結
+
+兩次（甚至多次）LEFT JOIN + 條件，
+條件一律寫在各自的 join closure 裡，
+WHERE 只留給主表。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
