@@ -1,0 +1,28 @@
+innodb_buffer_pool_size（最大宗）
+InnoDB 用來快取資料與索引。
+
+如果你的 buffer pool 太小：
+
+→ cache 命中率低
+→ 不斷從磁碟讀進來
+→ page 一直被換進換出
+
+這時會看到：
+IO 很高
+CPU 也會跟著升高（因為要處理 IO completion、latch、page 管理）
+
+
+innodb_buffer_pool_size = 128M
+大型不過，1個request 可能就150M
+跟CPU數量設定為主
+
+mysq1l最大記憶體buffer限制
+設太少會hit miss
+
+
+主要有bin_log會一直寫檔
+會影響讀取
+
+bin_log用很久會很大
+
+
