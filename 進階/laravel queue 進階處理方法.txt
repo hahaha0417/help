@@ -1,0 +1,40 @@
+laravel queue本身不能設worker數量
+Laravel Horizon 可以設queue worker數量
+ProcessPodcast::dispatch()->onQueue('emails');
+php artisan queue:work --queue=heavy,default
+php artisan queue:work --queue=default
+
+先看 high 有沒有 job
+沒有 → 看 default
+沒有 → 看 low
+
+
+
+
+queue worker 4 default
+schedule loop
+add queue
+
+
+Horizon 支援的 queue driver
+
+Redis ✅ 必須
+
+Database / Beanstalkd / SQS / sync ❌ 不支援
+
+原因
+
+Horizon 需要：
+
+快速的鎖機制 → 只有 Redis 能原子操作，支援 WithoutOverlapping 或類似行為
+
+即時監控 → 儀表板會讀 Redis 來顯示 queue 狀態、job metrics
+
+Supervisor / process 協調 → 多個 worker 同步狀態只能靠 Redis
+
+
+windows解決方案
+截尾顯示多切換法
+
+linux解決方案
+supervisor

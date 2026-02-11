@@ -1,0 +1,21 @@
+介面 / middleware	行為
+ShouldQueue	只是丟進 queue
+ShouldBeUnique	不准重複進 queue
+ShouldBeUniqueUntilProcessing	處理前唯一，可保持1~2相同job同時執行
+加WithoutOverlapping可保持1~2相同job輪流執行
+WithoutOverlapping	可重複進 queue，但同時只能一個跑
+
+
+use Illuminate\Queue\Middleware\WithoutOverlapping;
+
+class MyJob implements ShouldQueue
+{
+    public function middleware()
+    {
+        return [
+            (new WithoutOverlapping(self::class))
+                ->releaseAfter(5)
+                ->expireAfter(300),
+        ];
+    }
+}
