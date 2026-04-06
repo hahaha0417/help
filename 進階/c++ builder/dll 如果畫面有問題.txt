@@ -1,0 +1,17 @@
+dll 如果畫面顯示有問題，例如layout跑掉
+一定要先Form_Image_View_Ha_->Visible = true;，好像會先處理畫面(EXE不用)
+
+// --------------------------------------------------
+// 移到視窗外，讓DLL先處理畫面
+Form_Image_View_Ha_->Left = -10000;
+Form_Image_View_Ha_->Top = 0;
+Form_Image_View_Ha_->Width = 0;
+Form_Image_View_Ha_->Height = 0;
+// 這要先，不然畫面更新會不對
+Form_Image_View_Ha_->Visible = true;
+// 插入
+Form_Image_View_Ha_->MainBox->Parent = Form_Processing_Unit_Strategy_Webcam_->view_box;
+Form_Image_View_Ha_->MainBox->Align = alClient;
+// 隱藏
+Form_Image_View_Ha_->Visible = false;
+// --------------------------------------------------

@@ -1,0 +1,44 @@
+<?php
+
+$running = true;
+
+// Windows
+if (PHP_OS_FAMILY === 'Windows' && function_exists('sapi_windows_set_ctrl_handler')) {
+
+    sapi_windows_set_ctrl_handler(function ($event) use (&$running) {
+        if ($event === PHP_WINDOWS_EVENT_CTRL_C) {
+            echo "Windows: Ctrl+C 被攔截\n";
+            $running = false;
+        }
+        return true;
+    });
+
+// Linux / Unix
+} elseif (function_exists('pcntl_signal')) {
+
+    pcntl_async_signals(true);
+
+    pcntl_signal(SIGINT, function () use (&$running) {
+        echo "Linux: 收到 Ctrl+C\n";
+        $running = false;
+    });
+
+    pcntl_signal(SIGTERM, function () use (&$running) {
+        echo "Linux: 收到 SIGTERM\n";
+        $running = false;
+    });
+} else if (!function_exists('pcntl_signal') && PHP_OS_FAMILY !== 'Windows') {
+    echo "建議在 Linux 安裝 pcntl\n";
+}
+} else {
+    echo "⚠️ 此環境不支援 signal\n";
+}
+
+
+// 主迴圈
+while ($running) {
+    echo "Running...\n";
+    sleep(1);
+}
+
+echo "程式已安全結束\n";
