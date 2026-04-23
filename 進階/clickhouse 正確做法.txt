@@ -1,0 +1,13 @@
+GROUP BY 比 FINAL 更適合寫、也更適合用在實務 ClickHouse 查詢中
+
+
+FINAL / GROUP BY / CTAS / ReplacingMergeTree
+
+
+ReplacingMergeTree用Group by or Final不會物理去重(兩筆物理重複問題)
+
+一定要CTAS + Rename重整表(會吃CPU且比較久)
+
+策略是
+平常用Final(懶人寫法) or Group By(這比較佳，工程寫法)方式去重查詢
+一天(或一段時間)CTAS + Rename一次
