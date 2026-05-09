@@ -1,0 +1,13 @@
+hahaha官網(for 使用者)
+apache + mysql
+project(optane) 架構師base
+- 
+-管制 不動 pay.hahaha.com.tw
+-網站 多樣 www.hahaha.com.tw
+-流量 示例 ticket.hahaha.com.tw
+-數據 外包 click.hahaha.com.tw
+-其他
+-
+Apache          1萬
+ASP.NET Core 1萬～5萬
+Laravel Octane 3千～2萬 顯示較少
