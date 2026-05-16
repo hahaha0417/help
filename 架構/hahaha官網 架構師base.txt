@@ -25,6 +25,7 @@ file log 分天，錯誤特挑，一般流水(效能)
 reuse
 10分類5層
 2分類2層
+系統設定檔案鎖
 
 付費API AI
 clickhouse 2台 AI
