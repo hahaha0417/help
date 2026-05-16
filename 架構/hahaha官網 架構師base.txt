@@ -12,3 +12,21 @@ Apache          1萬
 ASP.NET Core 1萬～5萬
 Laravel Octane 3千～2萬 顯示較少
   
+  
+官網hahaha 
+  
+用途     base   upsert   sort        log         soft_delete 
+db 公規  ID     t_id     update_time create_time delete_time 
+migrate 維護機制
+account 2 page 
+permission upsert
+ticket coupon fast - 明里最高
+file log 分天，錯誤特挑，一般流水(效能)
+reuse
+10分類5層
+2分類2層
+
+付費API AI
+clickhouse 2台 AI
+  
+    
