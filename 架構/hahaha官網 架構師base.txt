@@ -15,8 +15,8 @@ Laravel Octane 3千～2萬 顯示較少
   
 官網hahaha 
   
-用途     base   upsert   sort        log         soft_delete 
-db 公規  ID     t_id     update_time create_time delete_time 
+用途     base   upsert   sort        log         soft_delete splitter
+db 公規  ID     h_id     update_time create_time delete_time splitter_1
 migrate 維護機制
 account 2 page 
 permission upsert
