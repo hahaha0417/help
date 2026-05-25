@@ -29,5 +29,18 @@ reuse
 
 付費API AI
 clickhouse 2台 AI
+
+------------------------------
+optane
+------------------------------
+table base
+member
+order
+product
+permission
+有限項更新法(傳統走DB) *
+------------------------------
+laravel log use word by 整理
+------------------------------
   
     
