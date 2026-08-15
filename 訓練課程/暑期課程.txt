@@ -1,0 +1,52 @@
+包暑假 :D
+
+
+-----------------
+php 2 + 2 + 2 
+-----------------
+
+tool
+app
+front
+easy tool  static html & html
+
+基礎套版 base
+基礎套版 base laravel
+hahahalib singletan
+命名法
+single
+
+ai anaylsis cache
+hahaha_octane_codex with ai
+案例 
+匯入發展 API法 db法(增量同步 -> 2 project -> 同步) AI
+
+-----------------
+c++ 2 + 2 + 2
+-----------------
+UI train 基於使用者操作 base
+xampp cloudflare
+exe + lib
+命名法
+
+hahahalib
+h_form exe lib dll
+ai anaylsis cache
+ai提模組
+view module
+ipp
+
+
+-----------------
+c#  2 + 2 + 2
+-----------------
+base arch 
+base arch 2 
+hahahalib
+命名法
+
+ai anaylsis cache
+base arch with ai
+base arch 2 with ai
+opencv
+little tool 
