@@ -1,0 +1,11 @@
+use Illuminate\Support\Facades\Artisan;
+
+public function run()
+{
+    Artisan::call('worker:run');
+
+    $output = Artisan::output();
+
+    return response($output)
+        ->header('Content-Type', 'text/plain; charset=UTF-8');
+}
