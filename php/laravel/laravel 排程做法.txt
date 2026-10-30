@@ -1,0 +1,2 @@
+laravel 排程做法 job command 一組
+可任意用
